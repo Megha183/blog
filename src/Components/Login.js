@@ -5,7 +5,7 @@ function Login() {
   return (
     <div>
     <Container fluid className="login-container">
-      <Row className="justify-content-center align-items-center vh-100">
+      <Row className="justify-content-center align-items-center ">
         <Col xs={12} md={6} lg={4}>
           <div className="text-center mb-4">
             <h2 className="login-heading">Login</h2>
@@ -29,7 +29,7 @@ function Login() {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit" block className="submit-button">
+            <Button variant="success" type="submit" block className="submit-button">
               Login
             </Button>
           </Form>

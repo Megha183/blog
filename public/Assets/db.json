@@ -1,0 +1,74 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "username": "user1",
+        "password": "password1"
+      },
+      {
+        "id": 2,
+        "username": "user2",
+        "password": "password2"
+      }
+    ],
+    "blogs": [
+      {
+        "id": 1,
+        "title": "Blog 1",
+        "content": "This is the content of Blog 1.",
+        "authorId": 1,
+        "likes": 10,
+        "comments": [
+          {
+            "id": 1,
+            "text": "Comment 1 for Blog 1",
+            "userId": 2
+          },
+          {
+            "id": 2,
+            "text": "Comment 2 for Blog 1",
+            "userId": 1
+          }
+        ],
+        "tags": ["Technology", "Programming"]
+      },
+      {
+        "id": 2,
+        "title": "Blog 2",
+        "content": "This is the content of Blog 2.",
+        "authorId": 2,
+        "likes": 5,
+        "comments": [],
+        "tags": ["Travel", "Food"]
+      }
+    ],
+    "tags": [
+      {
+        "name": "Technology",
+        "blogs": [1]
+      },
+      {
+        "name": "Programming",
+        "blogs": [1]
+      },
+      {
+        "name": "Travel",
+        "blogs": [2]
+      },
+      {
+        "name": "Food",
+        "blogs": [2]
+      }
+    ],
+    "likes": [
+      {
+        "blogId": 1,
+        "userId": 2
+      },
+      {
+        "blogId": 2,
+        "userId": 1
+      }
+    ]
+  }
+  

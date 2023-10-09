@@ -1,6 +1,5 @@
 /* Custom styling for the login container */
 .login-container {
-    background-color: #997b7b;
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -36,3 +35,24 @@
     background-color: #0056b3;
   }
   
+
+  /* banner-------------------------------------------------------------*/
+  /* Custom styling for the banner container */
+.custom-banner {
+  background-color: #265f2e; /* Background color */
+  color: #fff; /* Text color */
+  text-align: center; /* Center align text */
+  padding: 100px 0; /* Adjust padding as needed */
+}
+
+/* Styling for the banner text */
+.banner-text {
+  font-size: 36px; /* Font size for the site name */
+  margin-bottom: 20px;
+}
+
+.banner-text p {
+  font-size: 18px; /* Font size for the tagline */
+}
+
+ 
