@@ -17,6 +17,7 @@ function Blog({ author, date, title, content, id }) {
         <Button variant="primary" href={`/blog/${id}`}>Read More</Button>
 
         {/* Likes Section */}
+        
         <div className="likes-section mt-3">
           <Button variant="outline-secondary" onClick={handleLike}>Like</Button>
           <Badge variant="secondary" className="ml-2">{likes} Likes</Badge>

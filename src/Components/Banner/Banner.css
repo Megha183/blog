@@ -1,0 +1,18 @@
+/* banner-------------------------------------------------------------*/
+  /* Custom styling for the banner container */
+  .custom-banner {
+    background-color: #265f2e; /* Background color */
+    color: #fff; /* Text color */
+    text-align: center; /* Center align text */
+    padding: 100px 0; /* Adjust padding as needed */
+  }
+  
+  /* Styling for the banner text */
+  .banner-text {
+    font-size: 36px; /* Font size for the site name */
+    margin-bottom: 20px;
+  }
+  
+  .banner-text p {
+    font-size: 18px; /* Font size for the tagline */
+  }

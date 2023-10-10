@@ -2,6 +2,7 @@ import React from 'react'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import './Style.css'
 
+
 function Signup() {
   return (
     <div>
@@ -10,7 +11,7 @@ function Signup() {
       <Col xs={12} md={6} lg={4}>
         <div className="text-center mb-4">
           <h2 className="login-heading">Signup</h2>
-          <a>Have an account?</a>
+          <a href='/login'>Have an account?</a>
         </div>
         <Form>
 
@@ -28,6 +29,7 @@ function Signup() {
             placeholder="Enter your email"
             required
             className="input-field"
+            
           />
         </Form.Group>
           <Form.Group controlId="formBasicPassword">

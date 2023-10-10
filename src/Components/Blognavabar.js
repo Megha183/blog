@@ -1,5 +1,6 @@
 import React from 'react'
 import { Navbar, Nav, Button, Container } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Blognavabar() {
   return (
@@ -15,8 +16,10 @@ function Blognavabar() {
     </Navbar.Collapse>
 
     <Nav.Link href="/">Home</Nav.Link>
-        <Button variant="outline-primary" href="/signup" className="ms-2">Sign Up</Button>
-        <Button variant="primary" href="/signin" className="ms-2">Sign In</Button>
+       <Link to="/login"> <Button variant="outline-primary" href="/signup" className="ms-2">Login</Button></Link>
+       <Link to='/signUp'>
+        <Button variant="primary" href="/signUp" className="ms-2">Sign Up</Button>
+        </Link>
   </Navbar>
   </Container>
   </div>

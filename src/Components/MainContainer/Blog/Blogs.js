@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import Blog from './Blog';
-import TagBox from './TagBox'; // Import the TagBox component
+import TagBox from '../Tag/TagBox'; // Import the TagBox component
 
 function Blogs() {
     const [blogs, setBlogs] = useState([
