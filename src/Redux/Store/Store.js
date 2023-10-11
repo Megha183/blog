@@ -1,2 +1,6 @@
 import { createStore } from "redux";
-const store=createStore()
+import rootReducer from "../reducer/RootReducer";
+
+const store=createStore(rootReducer)
+console.log(store.getState());
+export default store

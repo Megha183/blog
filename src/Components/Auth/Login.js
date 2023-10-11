@@ -1,43 +1,60 @@
-import React from 'react'
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import './Style.css'
-function Login() {
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { login } from '../../Redux/Actions/AuthActions';
+import store from '../../Redux/Store/Store';
+import { Row,Col,Form,Container,Button } from 'react-bootstrap';
+function Login(props) {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = () => {
+    // You can perform authentication logic here, e.g., making an API request
+    // If authentication is successful, dispatch the login action.
+    const userData = {
+      username,
+      password,
+    };
+
+    props.login(userData);
+    console.log(store.getState());
+  };
+
   return (
     <div>
-    <Container fluid className="login-container">
-      <Row className="justify-content-center align-items-center ">
-        <Col xs={12} md={6} lg={4}>
-          <div className="text-center mb-4">
-            <h2 className="login-heading">Login</h2>
-          </div>
+      <Container className="auth-container">
+      <Row className="justify-content-center">
+        <Col md={6}>
+          <h2>Login</h2>
           <Form>
-            <Form.Group controlId="formBasicEmail">
+            <Form.Group>
               <Form.Control
                 type="text"
-                placeholder="Enter your username"
-                required
-                className="input-field"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
             </Form.Group>
-
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group>
               <Form.Control
                 type="password"
-                placeholder="Enter your password"
-                required
-                className="input-field"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Group>
-
-            <Button variant="success" type="submit" block className="submit-button">
+            <Button variant="primary" onClick={handleLogin}>
               Login
             </Button>
           </Form>
-          </Col>
-          </Row>
-        </Container>
+        </Col>
+      </Row>
+    </Container>
     </div>
-  )
+  );
 }
 
-export default Login
+const mapDispatchToProps = {
+  login,
+};
+
+export default connect(null, mapDispatchToProps)(Login);

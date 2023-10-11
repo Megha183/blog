@@ -1,55 +1,72 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { signup } from '../../Redux/Actions/AuthActions';
+import store from '../../Redux/Store/Store';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import './Style.css'
 
+function Signup(props) {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-function Signup() {
+  const handleSignup = () => {
+    // You can perform signup logic here, e.g., making an API request
+    // If signup is successful, dispatch the signup action.
+    const userData = {
+      username,
+      email,
+      password,
+    };
+
+    props.signup(userData);
+    console.log(store.getState());
+  };
+
   return (
     <div>
-    <Container fluid className="login-container">
-    <Row className="justify-content-center align-items-center ">
-      <Col xs={12} md={6} lg={4}>
-        <div className="text-center mb-4">
-          <h2 className="login-heading">Signup</h2>
-          <a href='/login'>Have an account?</a>
-        </div>
+    <Container className="auth-container">
+    <Row className="justify-content-center">
+      <Col md={6}>
+        <h2>Signup</h2>
         <Form>
-
-          <Form.Group controlId="">
+          <Form.Group>
             <Form.Control
               type="text"
-              placeholder="Enter your username"
-              required
-              className="input-field"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </Form.Group>
-          <Form.Group controlId="formBasicEmail">
-          <Form.Control
-            type="email"
-            placeholder="Enter your email"
-            required
-            className="input-field"
-            
-          />
-        </Form.Group>
-          <Form.Group controlId="formBasicPassword">
+          <Form.Group>
+            <Form.Control
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group>
             <Form.Control
               type="password"
-              placeholder="Enter your password"
-              required
-              className="input-field"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
-
-          <Button variant="success" type="submit" block className="submit-button">
-            Login
+          <Button variant="success" onClick={handleSignup}>
+            Signup
           </Button>
         </Form>
-        </Col>
-        </Row>
-      </Container>
+      </Col>
+    </Row>
+  </Container>
+
     </div>
-  )
+  );
 }
 
-export default Signup
+const mapDispatchToProps = {
+  signup,
+};
+
+export default connect(null, mapDispatchToProps)(Signup);
