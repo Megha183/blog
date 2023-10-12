@@ -1,27 +1,33 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { login } from '../../Redux/Actions/AuthActions';
-import store from '../../Redux/Store/Store';
-import { Row,Col,Form,Container,Button } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
+
 function Login(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = () => {
-    // You can perform authentication logic here, e.g., making an API request
-    // If authentication is successful, dispatch the login action.
-    const userData = {
-      username,
-      password,
-    };
+    // Replace this with actual authentication logic
+    // Check if the username and password are valid
+    if (username && password) {
+      const userData = {
+        username,
+      };
 
-    props.login(userData);
-    console.log(store.getState());
+      props.login(userData);
+      localStorage.setItem('isLoggedIn', JSON.stringify(true));
+      alert('Login successful');
+      navigate('/');
+    } else {
+      alert('Invalid username or password');
+    }
   };
 
   return (
-    <div>
-      <Container className="auth-container">
+    <Container className="auth-container">
       <Row className="justify-content-center">
         <Col md={6}>
           <h2>Login</h2>
@@ -46,10 +52,13 @@ function Login(props) {
               Login
             </Button>
           </Form>
+          <p>
+            Don't have an account?{' '}
+            <Link to="/signup">Sign up here</Link>
+          </p>
         </Col>
       </Row>
     </Container>
-    </div>
   );
 }
 

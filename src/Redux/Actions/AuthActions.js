@@ -4,7 +4,7 @@ import { LOGIN,SIGNUP } from "../ActionTypes/AuthTypes";
 export const login = (userData) => {
     return {
       type: LOGIN,
-      payload: userData,
+      payload:userData,
     };
   };
   
