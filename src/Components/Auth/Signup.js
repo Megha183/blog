@@ -1,25 +1,29 @@
 import React, { useState } from 'react';
+import store from '../../Redux/Store/Store'
 import { connect } from 'react-redux';
 import { signup } from '../../Redux/Actions/AuthActions';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-
-function Signup(props) {
+import axios from 'axios';
+function Signup() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleSignup = () => {
+  const handleSignup =async () => {
     // Replace this with actual signup logic
     // Check if the username, email, and password are valid
     if (username && email && password) {
       const userData = {
         username,
+        password,
         email,
       };
+      const response=await axios.post('http://localhost:3001/users',userData)
 
-      props.signup(userData);
+     console.log(store.getState());
+      console.log(userData,"userdata ....");
       alert('Signup successful');
       navigate('/login');
     } else {
@@ -71,8 +75,5 @@ function Signup(props) {
   );
 }
 
-const mapDispatchToProps = {
-  signup,
-};
 
-export default connect(null, mapDispatchToProps)(Signup);
+export default Signup;

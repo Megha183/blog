@@ -1,8 +1,8 @@
 // reducers/authReducer.js
-import { LOGIN,SIGNUP } from "../ActionTypes/AuthTypes";
+import { LOGIN,LOGOUT,SIGNUP } from "../ActionTypes/AuthTypes";
 const initialState = {
     isLoggedIn: false,
-    user: [],
+    user: []
   };
   
   const authReducer = (state = initialState, action) => {
@@ -19,6 +19,12 @@ const initialState = {
           ...state,
           user: action.payload,
         };
+
+        case LOGOUT:
+          return{
+            ...state,
+            isLoggedIn:false
+          }
       default:
         return state;
     }

@@ -1,14 +1,22 @@
 import React from "react";
 import { Navbar, Nav, Button, Container } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { logout } from "../Redux/Actions/AuthActions";
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 function Blognavabar() {
-  const username = useSelector((state) => state.auth.user?state.auth.user.username:'');
-  console.log(username);
+
+  const isLoggedIn=useSelector(state=>state.auth.isLoggedIn)
+  console.log(isLoggedIn,"isLogged ");
+  const username = useSelector((state) => state.auth.user.userName);
+  console.log(username,"username");
   const navigate=useNavigate()
-  const isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
-  const logout = () => {
-    localStorage.removeItem("isLoggedIn");
+  const dispatch=useDispatch()
+
+
+  const handleLogout = () => {
+    dispatch(logout())
     alert("logout success");
     navigate("/login");
   };
@@ -24,7 +32,26 @@ function Blognavabar() {
               <p>{username}</p>
               <Nav.Link href="/">Home</Nav.Link>
               {isLoggedIn ? (
-                <Button onClick={logout}>Logout</Button>
+                <>
+                <Link to={'/addNewBlog'}>
+                <Button className="ms-2" >New Post</Button>
+                </Link>
+                <Button className="ms-2" >Setting</Button>
+
+                <Dropdown data-bs-theme="dark" className="ms-2" >
+        <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
+         {username}
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu>
+          
+          <Dropdown.Item href="#/action-2">Account</Dropdown.Item>
+         
+          <Dropdown.Divider />
+          <Dropdown.Item href="#/action-4" onClick={handleLogout}>Logout</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+                </>
               ) : (
                 <>
                   <Link to="/login">

@@ -3,6 +3,7 @@ import { Card, Button, Badge } from 'react-bootstrap';
 
 function Blog({ author, date, title, content, id }) {
   const [likes, setLikes] = useState(0);
+  
 
   const handleLike = () => {
     setLikes(likes + 1);

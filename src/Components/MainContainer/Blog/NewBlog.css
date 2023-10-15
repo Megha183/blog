@@ -1,0 +1,94 @@
+.blog-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .blog-form {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .blog-form h2 {
+    margin-bottom: 20px;
+  }
+  
+  .blog-form .form-grou/* Custom CSS for styling the form */
+
+  .blog-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #f6f6f6;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .blog-form {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .blog-form h2 {
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 24px;
+  }
+  
+  .blog-form .form-group {
+    margin-bottom: 25px;
+  }
+  
+  .blog-form label {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .blog-form textarea {
+    min-height: 200px;
+    resize: vertical;
+  }
+  
+  .blog-form button {
+    width: 100%;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .blog-form button:hover {
+    background-color: #218838;
+  }
+  p {
+    margin-bottom: 20px;
+  }
+  
+  .blog-form label {
+    font-weight: bold;
+  }
+  
+  .blog-form textarea {
+    min-height: 150px;
+  }
+  
+  .blog-form button {
+    width: 100%;
+  }
+  

@@ -1,29 +1,55 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { login } from '../../Redux/Actions/AuthActions';
+import axios from 'axios'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 function Login(props) {
-  const [username, setUsername] = useState('');
+  const [userName, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
-  const handleLogin = () => {
+  const username = useSelector(state => state.auth.user.username)
+  const psw = useSelector(state => state.auth.user.password)
+
+  // console.log(username,psw);
+  const handleLogin = async (e) => {
+    e.preventDefault()
     // Replace this with actual authentication logic
     // Check if the username and password are valid
-    if (username && password) {
-      const userData = {
-        username,
-      };
-
-      props.login(userData);
-      localStorage.setItem('isLoggedIn', JSON.stringify(true));
-      alert('Login successful');
-      navigate('/');
-    } else {
-      alert('Invalid username or password');
+    const userData = {
+      userName, password
+    };
+    console.log(userData);
+    const response = await axios.get('http://localhost:3001/users')
+    
+    if (response.data) {
+      console.log(response.data);
+      const user = response.data.find(user => user.username ? user.username == userData.userName : '')
+      
+      console.log(user,user.id,"user is.............");
+      
+  
+      if (user) {
+        if (password == user.password) {
+         const userDetails={
+            userName, password,userId:user.id
+          }
+          props.login(userDetails);
+          localStorage.setItem('isLoggedIn', JSON.stringify(true));
+          alert('Login successful');
+          navigate('/');
+        } else {
+          alert('incorrect psw')
+        }
+      } else {
+        alert('user not found')
+      }
     }
+
   };
 
   return (
@@ -36,7 +62,7 @@ function Login(props) {
               <Form.Control
                 type="text"
                 placeholder="Username"
-                value={username}
+                value={userName}
                 onChange={(e) => setUsername(e.target.value)}
               />
             </Form.Group>
