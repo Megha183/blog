@@ -12,19 +12,18 @@ function NewBlog() {
         content: '',
         tags: '',
       });
-      const userId=useSelector(state=>state.auth.user.userId)
 
+
+      const userId=useSelector(state=>state.auth.user.userId)
       console.log(userId,"..............haha");
       const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
       };
-    
-        const dispatch = useDispatch();
 
+        const dispatch = useDispatch();
         const handleSubmit = (e) => {
           e.preventDefault();
-      
           const newBlogPost = {
             title: formData.title,
             description: formData.description,
@@ -35,7 +34,7 @@ function NewBlog() {
       
           dispatch(addBlogPostAsync(newBlogPost,userId)); // Dispatch the asynchronous action to add the blog post
         };
-      
+
         console.log('Form data submitted:', formData);
   return (
     <div className="blog-form-container">

@@ -5,7 +5,7 @@ import axios from 'axios'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-
+import './Style.css'
 function Login(props) {
   const [userName, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -55,32 +55,40 @@ function Login(props) {
   return (
     <Container className="auth-container">
       <Row className="justify-content-center">
-        <Col md={6}>
-          <h2>Login</h2>
+        <Col  className="login-box">
+          <h2 className="text-center mb-4">Login</h2>
           <Form>
-            <Form.Group>
+            <Form.Group className="mb-3">
               <Form.Control
                 type="text"
                 placeholder="Username"
                 value={userName}
                 onChange={(e) => setUsername(e.target.value)}
+                className="custom-input"
               />
             </Form.Group>
-            <Form.Group>
+            <Form.Group className="mb-4">
               <Form.Control
                 type="password"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                className="custom-input"
               />
             </Form.Group>
-            <Button variant="primary" onClick={handleLogin}>
-              Login
+            <Button
+              variant="primary"
+              onClick={handleLogin}
+              className="w-100 custom-button"
+            >
+            Login
             </Button>
           </Form>
-          <p>
+          <p className="mt-3 text-center">
             Don't have an account?{' '}
-            <Link to="/signup">Sign up here</Link>
+            <a href="/signup" className="text-primary">
+              Sign up here
+            </a>
           </p>
         </Col>
       </Row>

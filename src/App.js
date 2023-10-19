@@ -7,12 +7,14 @@ import HomeContainer from './Components/HomeContainer';
 import { Route,Routes } from 'react-router-dom';
 import Blognavabar from './Components/Blognavabar';
 import NewBlog from './Components/MainContainer/Blog/NewBlog';
+import View from './Components/MainContainer/Blog/View';
 
 
 function App() {
   return (
     <div className="App">
     <Blognavabar/>
+    <View/>
 
     <Routes>
     <Route path='/' element={<HomeContainer/>}/>
